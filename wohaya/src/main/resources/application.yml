@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    password: wohaya
+    username: memoire
+    url: jdbc:postgresql://localhost:5432/wohaya
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+server:
+  port: 8080
