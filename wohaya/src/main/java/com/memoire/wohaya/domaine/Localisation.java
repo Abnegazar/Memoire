@@ -15,14 +15,6 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class Localisation implements Serializable {
 
-    @OneToOne(optional = false)
-    @JoinColumn(name = "ville")
-    private Ville ville;
-
-    @OneToOne
-    @JoinColumn(name = "quartier")
-    private Quartier quartier;
-
     @OneToOne
     @JoinColumn(name = "zone")
     private Zone zone;

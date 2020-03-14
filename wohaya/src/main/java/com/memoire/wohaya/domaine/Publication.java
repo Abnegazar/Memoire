@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -22,10 +22,9 @@ public class Publication implements Serializable {
     @Column(nullable = false)
     private String status;
 
-    @Column(nullable = false)
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    @Temporal(TemporalType.DATE)
-    private Date datePublication;
+    @Column(nullable = false, name = "date_publication")
+    @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING, timezone = "Africa/Porto-Novo")
+    private LocalDate datePublication;
 
     @OneToOne
     @JoinColumn(name = "logement", nullable = false)

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -19,20 +19,17 @@ public class Reservation implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idReservation;
 
-    @Column(nullable = false)
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    @Temporal(TemporalType.DATE)
-    private Date dateDebut;
+    @Column(nullable = false, name = "date_debut")
+    @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING, timezone = "Africa/Porto-Novo")
+    private LocalDate dateDebut;
 
-    @Column(nullable = false)
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    @Temporal(TemporalType.DATE)
-    private Date dateFin;
+    @Column(nullable = false, name = "date_fin")
+    @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING, timezone = "Africa/Porto-Novo")
+    private LocalDate dateFin;
 
-    @Column(nullable = false)
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    @Temporal(TemporalType.DATE)
-    private Date dateReservation;
+    @Column(nullable = false, name = "date_reservation")
+    @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING, timezone = "Africa/Porto-Novo")
+    private LocalDate dateReservation;
 
     @Column(nullable = false)
     private String etat;
@@ -43,6 +40,6 @@ public class Reservation implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "auteur")
-    private Locataire auteur;
+    private Utilisateur auteur;
 
 }

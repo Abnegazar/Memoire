@@ -1,13 +1,13 @@
 package com.memoire.wohaya.domaine;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +17,24 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @DiscriminatorValue(value = "proprietaire")
-public class Proprietaire extends Locataire {
+public class Proprietaire extends Utilisateur {
+
+    //etat de l'abonnement du propriétaire entre "inactif", "actif"
+    @Column(nullable = false, name = "etat_abonnement")
+    private String etatAbonnement;
+
+
+    @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING, timezone = "Africa/Porto-Novo")
+    @Column(name = "debut_abonnement")
+    private LocalDate debutAbonnement;
+
+    @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING, timezone = "Africa/Porto-Novo")
+    @Column(name = "fin_abonnement")
+    private LocalDate finAbonnement;
+
+    @OneToOne
+    @JoinColumn(name = "abonnement")
+    private Abonnement abonnement;
 
     @OneToMany(mappedBy = "proprietaire")
     private List<Logement> logements = new ArrayList<>();

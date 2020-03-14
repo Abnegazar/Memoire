@@ -4,10 +4,11 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -19,20 +20,25 @@ public class Annonce implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAnnonce;
 
+    //Choisir entre annonce pour réservation ou pour location
     @Column(nullable = false)
     private String objet;
 
-    @Column(nullable = false)
-    @JsonFormat(pattern = "jj/MM/yyyy")
-    @Temporal(TemporalType.DATE)
-    private Date dateAnnonce;
+    @Column(nullable = false, name = "date_annonce")
+    @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING, timezone = "Africa/Porto-Novo")
+    private LocalDate dateAnnonce = LocalDate.now();
 
-    private float prixMin;
-
+    //facultatif
     private float prixMax;
 
     @Column(nullable = false)
     private int nbrChambre;
+
+    @Column(nullable = false)
+    private int nbrSalleBain;
+
+    @Column(nullable = false)
+    private int nbrCUisine;
 
     @Column(nullable = false)
     private String typeLocation;
@@ -42,6 +48,6 @@ public class Annonce implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "auteur")
-    private Locataire auteur;
+    private Utilisateur auteur;
 
 }

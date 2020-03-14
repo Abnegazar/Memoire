@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -21,15 +21,14 @@ public class PrendreContact implements Serializable {
 
     @OneToOne(optional = false)
     @JoinColumn(name = "proprietaire")
-    private Locataire proprietaire;
+    private Utilisateur utilisateur;
 
     @OneToOne(optional = false)
     @JoinColumn(name = "client")
-    private Locataire client;
+    private Utilisateur client;
 
-    @Column(nullable = false)
-    @JsonFormat(pattern = "jj/MM/yyyy")
-    @Temporal(TemporalType.DATE)
-    private Date dateContact;
+    @Column(nullable = false, name = "date_contact")
+    @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING, timezone = "Africa/Porto-Novo")
+    private LocalDate dateContact;
 
 }

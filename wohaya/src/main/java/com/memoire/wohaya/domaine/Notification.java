@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -25,13 +25,12 @@ public class Notification implements Serializable {
     @Column(nullable = false)
     private String contenu;
 
-    @Column(nullable = false)
-    @JsonFormat(pattern = "dd/MM/yyyy")
-    @Temporal(TemporalType.DATE)
-    private Date dateNotification;
+    @Column(nullable = false, name = "date_notification")
+    @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING, timezone = "Africa/Porto-Novo")
+    private LocalDate dateNotification;
 
     @OneToOne(optional = false)
     @JoinColumn(name = "destinataire")
-    private Locataire destinataire;
+    private Utilisateur destinataire;
 
 }
