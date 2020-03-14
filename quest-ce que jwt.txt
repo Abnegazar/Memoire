@@ -1,0 +1,33 @@
+Qu'est-ce que le jeton Web JSON?
+JSON Web Token (JWT) est une norme ouverte (RFC 7519) qui définit une manière compacte et autonome de transmettre en toute sécurité des informations entre les parties en tant qu'objet JSON. Ces informations peuvent être vérifiées et fiables car elles sont signées numériquement. Les JWT peuvent être signés à l'aide d'un secret (avec l'algorithme HMAC) ou d'une paire de clés publique / privée à l'aide de RSA ou ECDSA.
+
+Bien que les JWT puissent être chiffrés pour assurer également la confidentialité entre les parties, nous nous concentrerons sur les jetons signés. Les jetons signés peuvent vérifier l'intégrité des revendications qu'il contient, tandis que les jetons chiffrés cachent ces revendications aux autres parties. Lorsque les jetons sont signés à l'aide de paires de clés publiques / privées, la signature certifie également que seule la partie détenant la clé privée est celle qui l'a signée.
+
+
+
+
+
+
+avantage jwt
+
+Parlons des avantages des jetons Web JSON (JWT) par rapport aux jetons Web simples (SWT) et des jetons de langage de balisage d'assertion de sécurité (SAML).
+
+Comme JSON est moins verbeux que XML, lorsqu'il est encodé, sa taille est également plus petite, ce qui rend JWT plus compact que SAML. Cela fait de JWT un bon choix à passer dans les environnements HTML et HTTP.
+
+Côté sécurité, SWT ne peut être signé symétriquement que par un secret partagé à l'aide de l'algorithme HMAC. Cependant, les jetons JWT et SAML peuvent utiliser une paire de clés publique / privée sous la forme d'un certificat X.509 pour la signature. La signature XML avec la signature numérique XML sans introduire de failles de sécurité obscures est très difficile par rapport à la simplicité de la signature JSON.
+
+Les analyseurs JSON sont courants dans la plupart des langages de programmation car ils sont directement mappés aux objets. Inversement, XML n'a pas de mappage naturel de document à objet. Cela facilite le travail avec JWT par rapport aux assertions SAML.
+
+Concernant l'utilisation, JWT est utilisé à l'échelle Internet. Cela met en évidence la facilité du traitement côté client du jeton Web JSON sur plusieurs plates-formes, notamment mobiles.
+
+
+
+
+
+
+
+
+
+
+
+Dans ce mémoire nous réalisons une application mobile, permettant de rechercher ou de réserver tous types de logements. Cette application fait intervenir le propriétaire et le client, autour d’une même perspective, celle d’augmenter la visibilité des propriétaires sur le marché de l’immobilier et de réduire le temps consacrer à la recherche d’un logement au strict minimum. L’application permet également aux clients de laisser des annonces pour être informer de toutes publications de logements répondant à des caractéristiques précises. Le client dispose donc d’un large éventail de publications semblables et il lui est aussi permis de noter et de commenter une publication, ce qui pourrait susciter chez le propriétaire la nécessité d’améliorer la qualité de ses logements afin de répondre aux attentes du client. 
