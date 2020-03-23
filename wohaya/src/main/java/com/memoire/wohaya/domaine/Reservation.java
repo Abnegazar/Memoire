@@ -1,6 +1,7 @@
 package com.memoire.wohaya.domaine;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,10 +35,12 @@ public class Reservation implements Serializable {
     @Column(nullable = false)
     private String etat;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "logement")
     private Logement logement;
 
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "auteur")
     private Utilisateur auteur;

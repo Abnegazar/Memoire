@@ -1,5 +1,6 @@
 package com.memoire.wohaya.domaine;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,13 +20,11 @@ public class Abonnement implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAbonnement;
 
-    //private String type;
+    @Column(nullable = false)
+    private int duree;
 
     @Column(nullable = false)
-    private Long duree;
-
-    @Column(nullable = false)
-    private Long montant;
+    private Float montant;
 
     @Column(name = "nbr_chambre", nullable = false)
     private int nbrChambre;
@@ -36,6 +35,7 @@ public class Abonnement implements Serializable {
     @Column(name = "nbr_appart", nullable = false)
     private int nbrAppart;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "abonnement")
     private List<Proprietaire> proprietaires = new ArrayList<>();
 

@@ -1,6 +1,7 @@
 package com.memoire.wohaya.domaine;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -36,6 +37,7 @@ public class Proprietaire extends Utilisateur {
     @JoinColumn(name = "abonnement")
     private Abonnement abonnement;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "proprietaire")
     private List<Logement> logements = new ArrayList<>();
 }

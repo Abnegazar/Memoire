@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -29,7 +28,7 @@ public class Annonce implements Serializable {
     private LocalDate dateAnnonce = LocalDate.now();
 
     //facultatif
-    private float prixMax;
+    private Float prixMax;
 
     @Column(nullable = false)
     private int nbrChambre;
@@ -38,12 +37,15 @@ public class Annonce implements Serializable {
     private int nbrSalleBain;
 
     @Column(nullable = false)
-    private int nbrCUisine;
+    private int nbrCuisine;
 
     @Column(nullable = false)
     private String typeLocation;
 
     @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "zone", column = @Column(name = "localisation_zone"))
+    })
     private Localisation localisation;
 
     @OneToOne

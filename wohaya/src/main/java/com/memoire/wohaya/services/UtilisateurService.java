@@ -4,9 +4,11 @@ import com.memoire.wohaya.domaine.Utilisateur;
 import com.memoire.wohaya.repository.UtilisateurRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class UtilisateurService {
 
     private final UtilisateurRepository utilisateurRepository;
@@ -20,11 +22,31 @@ public class UtilisateurService {
     }
 
     public Utilisateur getOneByTelephoneAndPassword(String telephone, String password) {
-        return utilisateurRepository.findByTelephoneAndPassword(telephone, password);
+        return utilisateurRepository.findByTelephoneAndPwd(telephone, password);
     }
 
     public List<Utilisateur> getAll(){
         return utilisateurRepository.findAll();
+    }
+
+    public boolean existByPhoneAndPwd(String phone, String pwd){
+        return utilisateurRepository.existsByTelephoneAndPwd(phone, pwd);
+    }
+
+    public Long count(){
+        return utilisateurRepository.count();
+    }
+
+    public Utilisateur updateUser(Utilisateur utilisateur){
+        return utilisateurRepository.saveAndFlush(utilisateur);
+    }
+
+    public void deleteOne(String phone, String pwd){
+         utilisateurRepository.deleteByTelephoneAndPwd(phone, pwd);
+    }
+
+    public void deleteAll(){
+        utilisateurRepository.deleteAll();
     }
 
     /*public List<Utilisateur> getAllByRole(String role) {

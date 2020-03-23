@@ -1,6 +1,7 @@
 package com.memoire.wohaya.domaine;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,6 +30,7 @@ public class Notification implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING, timezone = "Africa/Porto-Novo")
     private LocalDate dateNotification;
 
+    @JsonIgnore
     @OneToOne(optional = false)
     @JoinColumn(name = "destinataire")
     private Utilisateur destinataire;

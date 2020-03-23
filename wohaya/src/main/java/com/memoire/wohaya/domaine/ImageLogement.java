@@ -1,5 +1,6 @@
 package com.memoire.wohaya.domaine;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,11 +18,12 @@ public class ImageLogement implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idImage;
 
+    @Column(nullable = false, unique = true)
+    private String cheminImage;
+
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "logement")
     private Logement logement;
-
-    @Column(nullable = false, unique = true)
-    private String cheminImage;
 
 }
