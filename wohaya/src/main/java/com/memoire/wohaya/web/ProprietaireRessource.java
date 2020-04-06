@@ -22,14 +22,11 @@ public class ProprietaireRessource {
 
     @PostMapping("/add")
     public ResponseEntity<Proprietaire> save(@RequestBody Proprietaire proprietaire){
-         LocalDate debut = proprietaire.getDebutAbonnement();
-         LocalDate fin = proprietaire.getFinAbonnement();
-         LocalDate now = LocalDate.now(ZoneId.of("Africa/Porto-Novo"));
-        if(debut == null) {
-            proprietaire.setDebutAbonnement(now);
+        if(proprietaire.getDebutAbonnement() == null) {
+            proprietaire.setDebutAbonnement(LocalDate.now(ZoneId.of("Africa/Porto-Novo")));
         }
         proprietaire.setFinAbonnement(proprietaire.getDebutAbonnement().plusMonths(proprietaire.getAbonnement().getDuree()));
-        if(proprietaire.getAbonnement() != null && fin.isAfter(now)){
+        if(proprietaire.getAbonnement() != null && proprietaire.getFinAbonnement().isAfter(LocalDate.now(ZoneId.of("Africa/Porto-Novo")))){
             proprietaire.setEtatAbonnement("actif");
         }else {
             proprietaire.setEtatAbonnement("inactif");

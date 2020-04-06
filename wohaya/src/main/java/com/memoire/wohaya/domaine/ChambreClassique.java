@@ -25,6 +25,6 @@ public class ChambreClassique extends Logement implements Serializable {
     private boolean cuisineInterne;
 
     @Column(nullable = false)
-    private boolean douche_interne;
+    private boolean doucheInterne;
 
 }

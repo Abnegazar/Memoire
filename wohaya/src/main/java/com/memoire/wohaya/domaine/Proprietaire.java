@@ -21,7 +21,7 @@ import java.util.List;
 public class Proprietaire extends Utilisateur {
 
     //etat de l'abonnement du propriétaire entre "inactif", "actif"
-    @Column(nullable = false, name = "etat_abonnement")
+    @Column(name = "etat_abonnement")
     private String etatAbonnement;
 
 
