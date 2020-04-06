@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "b5667d79-a344-44ea-a0d6-fe271a8c3d8d",
+		"name": "Utilisateur",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/utilisateur/add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"nom\": \"BOTONGUE\",\r\n    \"prenom\": \"Mario\",\r\n    \"telephone\": \"47526932\",\r\n    \"password\": \"hdII$$8\",\r\n    \"email\": \"mar@gmail.bj\",\r\n    \"sexe\": \"masculin\",\r\n    \"photo\": null\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/utilisateur/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"utilisateur",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/utilisateur/count",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/utilisateur/count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"utilisateur",
+						"count"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

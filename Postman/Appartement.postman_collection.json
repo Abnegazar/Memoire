@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "73028a66-a526-4fef-b39a-770c1f59699d",
+		"name": "Appartement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/appart/add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"categorie\" : \"location\",\r\n\t\"nbrChambre\" : 6,\r\n\t\"nbrCuisine\" : 2,\r\n\t\"nbrSalleBain\" : 4,\r\n\t\"prix\" : 350000,\r\n\t\"echeance\" : \"mois\",\r\n\t\"proprietaire\" : {\r\n        \"idUtilisateur\": 16,\r\n        \"nom\": \"CATRAILLE\",\r\n        \"prenom\": \"Warren\",\r\n        \"telephone\": \"+229 4579931\",\r\n        \"pwd\": \"dkfklkem\",\r\n        \"email\": \"wat@hotmail.bj\",\r\n        \"sexe\": \"masculin\",\r\n        \"photo\": null,\r\n        \"etatAbonnement\": \"actif\",\r\n        \"debutAbonnement\": \"22/03/2020\",\r\n        \"finAbonnement\": \"22/09/2021\",\r\n        \"abonnement\": {\r\n            \"idAbonnement\": 4,\r\n            \"duree\": 12,\r\n            \"montant\": 8000.0,\r\n            \"nbrChambre\": 5,\r\n            \"nbrResidence\": 5,\r\n            \"nbrAppart\": 5\r\n        }\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/appart/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"appart",
+						"add"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
