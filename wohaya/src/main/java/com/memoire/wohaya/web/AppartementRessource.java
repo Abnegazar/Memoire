@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("appart")
+@RequestMapping("/wohaya-api/appart")
 public class AppartementRessource {
 
     private final AppartementService appartementService;

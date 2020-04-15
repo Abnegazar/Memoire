@@ -29,7 +29,7 @@ public class AnnonceService {
     public List<Annonce> findAll(){
         return annonceRepository.findAll();
     }
-
+    
     public List<Annonce> getAllByAuteur(Long idAuteur){
         return annonceRepository.getAllByAuteur(idAuteur);
     }

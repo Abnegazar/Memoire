@@ -15,7 +15,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@DiscriminatorValue("appartement")
+//@DiscriminatorValue("appartement")
 public class Appartement extends Logement implements Serializable {
 
     @Column(nullable = false)

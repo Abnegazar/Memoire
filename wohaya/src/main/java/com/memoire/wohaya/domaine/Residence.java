@@ -6,7 +6,6 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import java.io.Serializable;
 
@@ -15,7 +14,7 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@DiscriminatorValue("residence")
+//@DiscriminatorValue("residence")
 public class Residence extends Logement implements Serializable {
 
     @Column(nullable = false)

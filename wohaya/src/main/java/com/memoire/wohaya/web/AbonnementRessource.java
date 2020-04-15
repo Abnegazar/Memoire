@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/abonnement")
+@RequestMapping("/wohaya-api/abonnement")
+@CrossOrigin
 public class AbonnementRessource {
 
     private final AbonnementService abonnementService;

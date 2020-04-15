@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.List;
 
-@RequestMapping("proprietaire")
+@RequestMapping("/wohaya-api/proprietaire")
 @RestController
 public class ProprietaireRessource {
 
@@ -38,6 +38,40 @@ public class ProprietaireRessource {
     @GetMapping("/find_all")
     public ResponseEntity<List<Proprietaire>> getAll(){
         return new ResponseEntity<>(proprietaireService.getAll(), HttpStatus.FOUND);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Proprietaire> getOne(@PathVariable("id") long id){
+        return new ResponseEntity<>(proprietaireService.findOne(id), HttpStatus.FOUND);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Proprietaire> update(@PathVariable("id") Long id, @RequestBody Proprietaire proprietaire){
+        if (existId(id)){
+            return new ResponseEntity<>(proprietaireService.update(proprietaire), HttpStatus.OK);
+        }else {
+            return new ResponseEntity<>(null, HttpStatus.NOT_MODIFIED);
+        }
+    }
+
+    @GetMapping("/exist/{id}")
+    public Boolean existId(@PathVariable("id") Long id){
+        return proprietaireService.existOne(id);
+    }
+
+    @GetMapping("/count")
+    public Long countAll(){
+        return proprietaireService.count();
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteOne(@PathVariable("id") Long id){
+        proprietaireService.deleteOne(id);
+    }
+
+    @DeleteMapping("/delete_all")
+    public void deleteAll(){
+        proprietaireService.deleteAll();
     }
 
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/annonce")
+@RequestMapping("/wohaya-api/annonce")
 public class AnnonceRessource {
 
     private final AnnonceService annonceService;

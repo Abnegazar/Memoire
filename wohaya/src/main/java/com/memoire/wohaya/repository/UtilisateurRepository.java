@@ -7,6 +7,9 @@ import org.springframework.lang.Nullable;
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> {
 
     @Nullable
+    Utilisateur findByTelephone(String telephone);
+
+    @Nullable
     Utilisateur findByTelephoneAndPwd(String phone, String pwd);
 
     boolean existsByTelephoneAndPwd(String phone, String pwd);

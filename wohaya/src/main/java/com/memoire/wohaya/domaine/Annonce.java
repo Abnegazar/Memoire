@@ -48,7 +48,7 @@ public class Annonce implements Serializable {
     })
     private Localisation localisation;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "auteur")
     private Utilisateur auteur;
 

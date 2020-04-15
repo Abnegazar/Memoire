@@ -1,7 +1,6 @@
 package com.memoire.wohaya.services;
 
 import com.memoire.wohaya.domaine.ChambreClassique;
-import com.memoire.wohaya.repository.AppartementRepository;
 import com.memoire.wohaya.repository.ChambreClassiqueRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +12,9 @@ import java.util.List;
 public class ChambreClassiqueService {
 
     private final ChambreClassiqueRepository chambreClassiqueRepository;
-    private final AppartementRepository appartementRepository;
 
-    public ChambreClassiqueService(ChambreClassiqueRepository chambreClassiqueRepository, AppartementRepository appartementRepository) {
+    public ChambreClassiqueService(ChambreClassiqueRepository chambreClassiqueRepository) {
         this.chambreClassiqueRepository = chambreClassiqueRepository;
-        this.appartementRepository = appartementRepository;
     }
 
     public ChambreClassique save(ChambreClassique chambreClassique){

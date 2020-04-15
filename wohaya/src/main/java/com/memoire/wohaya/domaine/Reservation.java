@@ -36,12 +36,12 @@ public class Reservation implements Serializable {
     private String etat;
 
     @JsonIgnore
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "logement")
     private Logement logement;
 
     @JsonIgnore
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "auteur")
     private Utilisateur auteur;
 

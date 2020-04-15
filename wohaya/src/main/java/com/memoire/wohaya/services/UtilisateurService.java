@@ -25,6 +25,11 @@ public class UtilisateurService {
         return utilisateurRepository.findByTelephoneAndPwd(telephone, password);
     }
 
+    public Utilisateur getOneByTelephone(String telephone) {
+        return utilisateurRepository.findByTelephone(telephone);
+    }
+
+
     public List<Utilisateur> getAll(){
         return utilisateurRepository.findAll();
     }

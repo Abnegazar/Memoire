@@ -31,7 +31,7 @@ public class Notification implements Serializable {
     private LocalDate dateNotification;
 
     @JsonIgnore
-    @OneToOne(optional = false)
+    @ManyToOne(optional = false)
     @JoinColumn(name = "destinataire")
     private Utilisateur destinataire;
 

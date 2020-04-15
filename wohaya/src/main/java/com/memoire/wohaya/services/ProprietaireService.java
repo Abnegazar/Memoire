@@ -28,4 +28,28 @@ public class ProprietaireService {
         return proprietaireRepository.findAll();
     }
 
+    public Proprietaire findOne(Long id){
+        return proprietaireRepository.getOne(id);
+    }
+
+    public Proprietaire update(Proprietaire proprietaire){
+        return proprietaireRepository.saveAndFlush(proprietaire);
+    }
+
+    public Boolean existOne(Long id){
+        return proprietaireRepository.existsById(id);
+    }
+
+    public Long count(){
+        return proprietaireRepository.count();
+    }
+
+    public void deleteOne(Long id){
+        proprietaireRepository.deleteById(id);
+    }
+
+    public void deleteAll(){
+        proprietaireRepository.deleteAll();
+    }
+
 }

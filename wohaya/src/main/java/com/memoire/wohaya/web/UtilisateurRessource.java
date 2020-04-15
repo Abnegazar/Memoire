@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/utilisateur")
+@RequestMapping("/wohaya-api/utilisateur")
 public class UtilisateurRessource {
 
     private final UtilisateurService utilisateurService;
@@ -26,6 +26,11 @@ public class UtilisateurRessource {
     @GetMapping(value = "/find/{telephone}/{password}")
     public ResponseEntity<Utilisateur> findOneByTelephoneAndPassword(@PathVariable("telephone") String telephone, @PathVariable("password") String password){
         return new ResponseEntity<>(utilisateurService.getOneByTelephoneAndPassword(telephone, password), HttpStatus.FOUND);
+    }
+
+    @GetMapping(value = "/find/{telephone}")
+    public ResponseEntity<Utilisateur> findOneByTelephone(@PathVariable("telephone") String telephone){
+        return new ResponseEntity<>(utilisateurService.getOneByTelephone(telephone), HttpStatus.FOUND);
     }
 
     @GetMapping(value = "/find_all")

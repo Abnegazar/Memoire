@@ -8,14 +8,15 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@DiscriminatorValue(value = "client")
-@DiscriminatorColumn(name = "role")
+/*@DiscriminatorValue(value = "client")
+@DiscriminatorColumn(name = "role")*/
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Utilisateur implements Serializable {
 
@@ -43,6 +44,10 @@ public class Utilisateur implements Serializable {
 
     protected String photo;
 
+    protected String roles;
+
+    protected String permissions;
+
     @JsonIgnore
     @OneToMany(mappedBy = "auteur")
     protected List<Annonce> annonces = new ArrayList<>();
@@ -58,5 +63,30 @@ public class Utilisateur implements Serializable {
     @JsonIgnore
     @OneToMany(mappedBy = "auteur")
     protected List<Appreciation> appreciations = new ArrayList<>();
+
+    public Utilisateur (String nom, String prenom, String telephone, String pwd, String mail, String sexe, String roles, String permissions){
+        this.nom = nom;
+        this.prenom = prenom;
+        this.telephone = telephone;
+        this.pwd = pwd;
+        this.email = mail;
+        this.sexe = sexe;
+        this.roles = roles;
+        this.permissions = permissions;
+    }
+
+    public List<String> getRolesList(){
+        if(this.roles.length() > 0 ){
+            return Arrays.asList(this.roles.split(","));
+        }
+        return new ArrayList<>();
+    }
+
+    public List<String> getPermissionsList(){
+        if(this.permissions.length() > 0 ){
+            return Arrays.asList(this.permissions.split(","));
+        }
+        return new ArrayList<>();
+    }
 
 }

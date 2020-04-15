@@ -1,12 +1,22 @@
 spring:
-  datasource:
-    password: wohaya
-    username: memoire
-    url: jdbc:postgresql://localhost:5432/wohaya
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+    datasource:
+        password: wohaya
+        username: memoire
+        url: jdbc:postgresql://localhost:5432/wohaya
+#    security:
+#        user:
+#            password: 12345
+#            name: void
+    jpa:
+        hibernate:
+            ddl-auto: create
+        show-sql: false
+        open-in-view: false
 server:
-  port: 8080
+    port: 8443
+    ssl:
+        enabled: true
+        key-store: src/main/resources/static/bootsecurity.p12
+        key-store-password: bootsecurity
+        key-store-type: PKCS12
+        key-alias: bootsecurity

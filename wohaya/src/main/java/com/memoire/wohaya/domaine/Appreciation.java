@@ -27,7 +27,7 @@ public class Appreciation implements Serializable {
     private LocalDate dateAppr;
 
     @Id
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "auteur")
     private Utilisateur auteur;
 
