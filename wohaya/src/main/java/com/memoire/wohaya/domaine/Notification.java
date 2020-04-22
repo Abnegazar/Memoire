@@ -2,6 +2,7 @@ package com.memoire.wohaya.domaine;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class Notification implements Serializable {
     @Column(nullable = false)
     private String objet;
 
+    @ApiModelProperty(notes = "Message de la notification")
     @Column(nullable = false)
     private String contenu;
 

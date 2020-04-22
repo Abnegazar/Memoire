@@ -1,6 +1,7 @@
 package com.memoire.wohaya.security;
 
 import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -26,29 +27,28 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         this.authenticationManager = authenticationManager;
     }
 
+    //Trigger when we issue POST request to /login
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
-        //Grab credentials and map them to LoginView
-        LoginView credentials = null;
-        try {
-            credentials = new ObjectMapper().readValue(request.getInputStream(), LoginView.class);
-        } catch (IOException e) {
+        //Grab credentials and map them to loginViewModel
+        LoginViewModel credentials = null;
+        try{
+            credentials = new ObjectMapper().readValue(request.getInputStream(), LoginViewModel.class);
+        }catch (IOException e){
             e.printStackTrace();
         }
 
         //Create login token
-        UsernamePasswordAuthenticationToken authenticationToken = null;
-        if (credentials != null) {
-            authenticationToken = new UsernamePasswordAuthenticationToken(
-                    credentials.getTelephone(),
-                    credentials.getPwd(),
-                    new ArrayList<>()
-            );
-        }
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+          credentials.getUsername(),
+          credentials.getPassword(),
+          new ArrayList<>()
+        );
 
         //Authenticate user
-        Authentication auth = authenticationManager.authenticate(authenticationToken);
-        return auth;
+        Authentication authentication = authenticationManager.authenticate(authenticationToken);
+        return authentication;
+
     }
 
     @Override
@@ -57,10 +57,12 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         UserPrincipal principal = (UserPrincipal)authResult.getPrincipal();
 
         //Create JWT Token
-        String token = JWT.create()
-                .withSubject(principal.getUsername())
-                .withExpiresAt(new Date(System.currentTimeMillis() + JwtProperties.EXPIRATION_TIME))
-                .sign(HMAC512(JwtProperties.SECRET.getBytes()));
+        String token = JWT
+            .create()
+            .withSubject(principal.getUsername())
+            .withExpiresAt(new Date(System.currentTimeMillis() + JwtProperties.EXPIRATION_TIME))
+            .sign(Algorithm.HMAC512(JwtProperties.SECRET.getBytes())
+        );
 
         //Add token in response
         response.addHeader(JwtProperties.HEADER_STRING, JwtProperties.TOKEN_PREFIX + token);

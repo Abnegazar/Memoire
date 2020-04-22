@@ -18,7 +18,7 @@ public class UserPrincipalDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Utilisateur utilisateur = utilisateurRepository.findByTelephone(username);
+        Utilisateur utilisateur = utilisateurRepository.findByUsername(username);
         return new UserPrincipal(utilisateur);
     }
 

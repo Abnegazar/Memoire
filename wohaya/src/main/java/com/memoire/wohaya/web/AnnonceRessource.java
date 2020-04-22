@@ -3,6 +3,7 @@ package com.memoire.wohaya.web;
 import com.memoire.wohaya.domaine.Annonce;
 import com.memoire.wohaya.domaine.Localisation;
 import com.memoire.wohaya.services.AnnonceService;
+import io.swagger.annotations.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/wohaya-api/annonce")
+@Api(value="Gestion des Annonces")
 public class AnnonceRessource {
 
     private final AnnonceService annonceService;

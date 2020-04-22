@@ -2,6 +2,7 @@ package com.memoire.wohaya.web;
 
 import com.memoire.wohaya.domaine.Logement;
 import com.memoire.wohaya.services.LogementService;
+import io.swagger.annotations.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RequestMapping("/wohaya-api/logement")
 @RestController
+@Api(value="Gestion de tous les types de logement")
 public class LogementRessource {
 
     private final LogementService logementService;
@@ -28,7 +30,7 @@ public class LogementRessource {
         return new ResponseEntity<>(logementService.getPrix(prix), HttpStatus.FOUND);
     }
 
-    @GetMapping("/findPriMeu/{prix}/{meubler}")
+    @GetMapping("/findPriMeu/{prix}")
     public ResponseEntity<List<Logement>> getByPrixAnd
             (@PathVariable("prix") float prix){
         return new ResponseEntity<>(logementService.getPrix(prix), HttpStatus.FOUND);
@@ -40,40 +42,40 @@ public class LogementRessource {
         return new ResponseEntity<>(logementService.findAllByDisponibiliteAndPrix(disponibilite, prix), HttpStatus.FOUND);
     }
 
-    @GetMapping("/findDisPriMeu/{disponibilite}/{prix}/{meubler}")
+    @GetMapping("/findDisPriMeu/{disponibilite}/{prix}")
     public ResponseEntity<List<Logement>> getDispoPrix
             (@PathVariable("disponibilite") String disponibilite, @PathVariable("prix") float prix){
         return new ResponseEntity<>(logementService.getDispoPrix(disponibilite, prix), HttpStatus.FOUND);
     }
 
-    @GetMapping("/findDisPriEchMeu/{disponibilite}/{prix}/{echeance}/{meubler}")
+    @GetMapping("/findDisPriEchMeu/{disponibilite}/{prix}/{echeance}")
     public ResponseEntity<List<Logement>> getDispoPrixEcheance
             (@PathVariable("disponibilite") String disponibilite, @PathVariable("prix") float prix, @PathVariable("echeance") String echeance){
         return new ResponseEntity<>(logementService.getDispoPrixEcheance(disponibilite, prix, echeance), HttpStatus.FOUND);
     }
 
-    @GetMapping("/findDisPriCatMeu/{disponibilite}/{prix}/{categorie}/{meubler}")
-    public ResponseEntity<List<Logement>> getDispoPrixCategorie
-            (@PathVariable("disponibilite") String disponibilite, @PathVariable("prix") float prix, @PathVariable("categorie") String categorie){
-        return new ResponseEntity<>(logementService.getDispoPrixCategorie(disponibilite, prix, categorie), HttpStatus.FOUND);
+    @GetMapping("/findDisPriCatMeu/{disponibilite}/{prix}/{confort}")
+    public ResponseEntity<List<Logement>> getDispoPrixConfort
+            (@PathVariable("disponibilite") String disponibilite, @PathVariable("prix") float prix, @PathVariable("confort") String confort){
+        return new ResponseEntity<>(logementService.getDispoPrixConfort(disponibilite, prix, confort), HttpStatus.FOUND);
     }
 
-    @GetMapping("/findDisPriEchCatMeu/{disponibilite}/{prix}/{echeance}/{categorie}/{meubler}")
-    public ResponseEntity<List<Logement>> getDispoPrixEcheanceCategorie
-            (@PathVariable("disponibilite") String disponibilite, @PathVariable("prix") float prix, @PathVariable("echeance") String echeance, @PathVariable("categorie") String categorie){
-        return new ResponseEntity<>(logementService.getDispoPrixEcheanceCategorie(disponibilite, prix, echeance, categorie), HttpStatus.FOUND);
+    @GetMapping("/findDisPriEchCatMeu/{disponibilite}/{prix}/{echeance}/{confort}")
+    public ResponseEntity<List<Logement>> getDispoPrixEcheanceConfort
+            (@PathVariable("disponibilite") String disponibilite, @PathVariable("prix") float prix, @PathVariable("echeance") String echeance, @PathVariable("confort") String confort){
+        return new ResponseEntity<>(logementService.getDispoPrixEcheanceConfort(disponibilite, prix, echeance, confort), HttpStatus.FOUND);
     }
 
-    @GetMapping("/findDisPriCatNbrChamCuiBainMeu/{disponibilite}/{prix}/{categorie}/{nbrChambre}/{nbrCuisine}/{nbrSalleBain}/{meubler}")
-    public ResponseEntity<List<Logement>> getDispoPrixCategorieNbr_Chambr_cuisine_bain
-            (@PathVariable("disponibilite") String disponibilite, @PathVariable("prix") float prix, @PathVariable("categorie") String categorie, @PathVariable("nbrChambre") int nbrChambre, @PathVariable("nbrCuisine") int nbrCuisine, @PathVariable("nbrSalleBain") int nbrSalleBain){
-        return new ResponseEntity<>(logementService.getDispoPrixCategorieNbr_Chambr_cuisine_bain(disponibilite, prix, categorie, nbrChambre, nbrCuisine, nbrSalleBain), HttpStatus.FOUND);
+    @GetMapping("/findDisPriCatNbrChamCuiBainMeu/{disponibilite}/{prix}/{confort}/{nbrChambre}/{nbrCuisine}/{nbrSalleBain}")
+    public ResponseEntity<List<Logement>> getDispoPrixConfortNbr_Chambr_cuisine_bain
+            (@PathVariable("disponibilite") String disponibilite, @PathVariable("prix") float prix, @PathVariable("confort") String confort, @PathVariable("nbrChambre") int nbrChambre, @PathVariable("nbrCuisine") int nbrCuisine, @PathVariable("nbrSalleBain") int nbrSalleBain){
+        return new ResponseEntity<>(logementService.getDispoPrixConfortNbr_Chambr_cuisine_bain(disponibilite, prix, confort, nbrChambre, nbrCuisine, nbrSalleBain), HttpStatus.FOUND);
     }
 
-    @GetMapping("/findDisPriCatEchNbrChamCuiBainMeu/{disponibilite}/{prix}/{categorie}/{echeance}/{nbrChambre}/{nbrCuisine}/{nbrSalleBain}/{meubler}")
-    public ResponseEntity<List<Logement>> getDispoPrixCategorieEcheanceNbr_Chambr_cuisine_bain
-            (@PathVariable("disponibilite") String disponibilite, @PathVariable("prix") float prix, @PathVariable("categorie") String categorie, @PathVariable("echeance") String echeance, @PathVariable("nbrChambre") int nbrChambre, @PathVariable("nbrCuisine") int nbrCuisine, @PathVariable("nbrSalleBain") int nbrSalleBain){
-        return new ResponseEntity<>(logementService.getDispoPrixCategorieEcheanceNbr_Chambr_cuisine_bain(disponibilite, prix, categorie, echeance, nbrChambre, nbrCuisine, nbrSalleBain), HttpStatus.FOUND);
+    @GetMapping("/findDisPriCatEchNbrChamCuiBainMeu/{disponibilite}/{prix}/{confort}/{echeance}/{nbrChambre}/{nbrCuisine}/{nbrSalleBain}")
+    public ResponseEntity<List<Logement>> getDispoPrixConfortEcheanceNbr_Chambr_cuisine_bain
+            (@PathVariable("disponibilite") String disponibilite, @PathVariable("prix") float prix, @PathVariable("confort") String confort, @PathVariable("echeance") String echeance, @PathVariable("nbrChambre") int nbrChambre, @PathVariable("nbrCuisine") int nbrCuisine, @PathVariable("nbrSalleBain") int nbrSalleBain){
+        return new ResponseEntity<>(logementService.getDispoPrixConfortEcheanceNbr_Chambr_cuisine_bain(disponibilite, prix, confort, echeance, nbrChambre, nbrCuisine, nbrSalleBain), HttpStatus.FOUND);
     }
 
     @GetMapping("/find_all")

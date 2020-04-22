@@ -2,6 +2,7 @@ package com.memoire.wohaya.web;
 
 import com.memoire.wohaya.domaine.Residence;
 import com.memoire.wohaya.services.ResidenceService;
+import io.swagger.annotations.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RequestMapping("/wohaya-api/residence")
 @RestController
+@Api(value="Gestion des Résidences")
 public class ResidenceRessource {
 
     private final ResidenceService residenceService;

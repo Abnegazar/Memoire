@@ -2,6 +2,7 @@ package com.memoire.wohaya.web;
 
 import com.memoire.wohaya.domaine.Proprietaire;
 import com.memoire.wohaya.services.ProprietaireService;
+import io.swagger.annotations.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RequestMapping("/wohaya-api/proprietaire")
 @RestController
+@Api(value="Gestion des Propriétaires")
 public class ProprietaireRessource {
 
     private final ProprietaireService proprietaireService;

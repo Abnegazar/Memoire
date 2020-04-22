@@ -21,12 +21,12 @@ public class UtilisateurService {
         return utilisateurRepository.save(utilisateur);
     }
 
-    public Utilisateur getOneByTelephoneAndPassword(String telephone, String password) {
-        return utilisateurRepository.findByTelephoneAndPwd(telephone, password);
+    public Utilisateur getOneByUsernameAndPassword(String username, String password) {
+        return utilisateurRepository.findByUsernameAndPwd(username, password);
     }
 
-    public Utilisateur getOneByTelephone(String telephone) {
-        return utilisateurRepository.findByTelephone(telephone);
+    public Utilisateur getOneByUsername(String username) {
+        return utilisateurRepository.findByUsername(username);
     }
 
 
@@ -35,7 +35,7 @@ public class UtilisateurService {
     }
 
     public boolean existByPhoneAndPwd(String phone, String pwd){
-        return utilisateurRepository.existsByTelephoneAndPwd(phone, pwd);
+        return utilisateurRepository.existsByUsernameAndPwd(phone, pwd);
     }
 
     public Long count(){
@@ -47,7 +47,7 @@ public class UtilisateurService {
     }
 
     public void deleteOne(String phone, String pwd){
-         utilisateurRepository.deleteByTelephoneAndPwd(phone, pwd);
+         utilisateurRepository.deleteByUsernameAndPwd(phone, pwd);
     }
 
     public void deleteAll(){

@@ -2,6 +2,7 @@ package com.memoire.wohaya.web;
 
 import com.memoire.wohaya.domaine.Notification;
 import com.memoire.wohaya.services.NotificationService;
+import io.swagger.annotations.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RequestMapping("/wohaya-api/notification")
 @RestController
+@Api(value="Gestion des Notifications")
 public class NotificationRessource {
 
     private final NotificationService notificationService;

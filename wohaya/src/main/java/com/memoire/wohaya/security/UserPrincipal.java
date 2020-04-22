@@ -41,7 +41,7 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public String getUsername() {
-        return utilisateur.getTelephone();
+        return utilisateur.getUsername();
     }
 
     @Override

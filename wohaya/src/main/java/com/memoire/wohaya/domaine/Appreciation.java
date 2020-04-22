@@ -1,6 +1,7 @@
 package com.memoire.wohaya.domaine;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,12 +17,15 @@ import java.time.LocalDate;
 public class Appreciation implements Serializable {
 
     //Note donnée à la publication
+    @ApiModelProperty(notes = "Note de la publication")
     @Column(name = "valeur", nullable = false)
     private int valeur;
 
     //Commentaire
+    @ApiModelProperty(notes = "Commentaire")
     private String avis;
 
+    @ApiModelProperty(notes = "Date du commentaire : la date courante si rien n'est mis.")
     @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING, timezone = "Africa/Porto-Novo")
     @Column(nullable = false, name = "date_appr")
     private LocalDate dateAppr;

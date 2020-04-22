@@ -2,6 +2,7 @@ package com.memoire.wohaya.domaine;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,11 +21,13 @@ public class Reservation implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idReservation;
 
+    @ApiModelProperty(notes = "Date de début de la réservation")
     @Column(nullable = false, name = "date_debut")
     @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING, timezone = "Africa/Porto-Novo")
     private LocalDate dateDebut;
 
     @Column(nullable = false, name = "date_fin")
+    @ApiModelProperty(notes = "Date de fin de la réservation")
     @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING, timezone = "Africa/Porto-Novo")
     private LocalDate dateFin;
 
@@ -32,15 +35,14 @@ public class Reservation implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy", shape = JsonFormat.Shape.STRING, timezone = "Africa/Porto-Novo")
     private LocalDate dateReservation;
 
+    @ApiModelProperty(notes = "acceptée ou rejetée")
     @Column(nullable = false)
     private String etat;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "logement")
     private Logement logement;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "auteur")
     private Utilisateur auteur;

@@ -1,6 +1,7 @@
 package com.memoire.wohaya.domaine;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -39,26 +40,33 @@ public class Logement implements Serializable {
     @Column(nullable = false)
     protected float prix;
 
+    @ApiModelProperty(notes = "Brève description de l'image")
     protected String description;
 
+    @ApiModelProperty(notes = "Mensuel ou Annuel")
     //mensualités ou annualités
     @Column(nullable = false)
     protected String echeance;
 
     //sanitaire ou non
+    @ApiModelProperty(notes = "sanitaire ou ordinaire")
     @Column(nullable = false)
-    protected String categorie;
+    protected String confort;
 
     //location, réservation
+    @ApiModelProperty(notes = "location ou réservation")
     @Column(name = "disponibilite", nullable = false, length = 50)
     protected String disponibilite;
 
+    @ApiModelProperty(notes = "Nombre de chambres à coucher")
     @Column(nullable = false)
     protected int nbrChambre;
 
+    @ApiModelProperty(notes = "Nombre de cuisines")
     @Column(nullable = false)
     protected int nbrCuisine;
 
+    @ApiModelProperty(notes = "Nombre de salles de bain")
     @Column(nullable = false)
     protected int nbrSalleBain;
 

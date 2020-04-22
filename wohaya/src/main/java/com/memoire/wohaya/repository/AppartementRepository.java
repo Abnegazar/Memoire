@@ -27,28 +27,28 @@ public interface AppartementRepository extends JpaRepository<Appartement, Long> 
     List<Appartement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndMeubler(String disponibilite, float prix, String echeance, boolean meubler);
 
     @Nullable
-    List<Appartement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndCategorieIgnoreCase(String disponibilite, float prix, String categorie);
+    List<Appartement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndConfortIgnoreCase(String disponibilite, float prix, String confort);
 
     @Nullable
-    List<Appartement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndCategorieIgnoreCaseAndMeubler(String disponibilite, float prix, String categorie, boolean meubler);
+    List<Appartement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndConfortIgnoreCaseAndMeubler(String disponibilite, float prix, String confort, boolean meubler);
 
     @Nullable
-    List<Appartement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndCategorieIgnoreCase(String disponibilite, float prix, String echeance, String categorie);
+    List<Appartement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndConfortIgnoreCase(String disponibilite, float prix, String echeance, String confort);
 
     @Nullable
-    List<Appartement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndCategorieIgnoreCaseAndMeubler(String disponibilite, float prix, String echeance, String categorie, boolean meubler);
+    List<Appartement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndConfortIgnoreCaseAndMeubler(String disponibilite, float prix, String echeance, String confort, boolean meubler);
 
     @Nullable
-    List<Appartement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndCategorieIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqual(String disponibilite, float prix, String categorie, int nbrChambre, int nbrCuisine, int nbrSalleBain);
+    List<Appartement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndConfortIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqual(String disponibilite, float prix, String confort, int nbrChambre, int nbrCuisine, int nbrSalleBain);
 
     @Nullable
-    List<Appartement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndCategorieIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqualAndMeubler(String disponibilite, float prix, String categorie, int nbrChambre, int nbrCuisine, int nbrSalleBain, boolean meubler);
+    List<Appartement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndConfortIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqualAndMeubler(String disponibilite, float prix, String confort, int nbrChambre, int nbrCuisine, int nbrSalleBain, boolean meubler);
 
     @Nullable
-    List<Appartement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndCategorieIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqual(String disponibilite, float prix, String echeance, String categorie, int nbrChambre, int nbrCuisine, int nbrSalleBain);
+    List<Appartement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndConfortIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqual(String disponibilite, float prix, String echeance, String confort, int nbrChambre, int nbrCuisine, int nbrSalleBain);
 
     @Nullable
-    List<Appartement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndCategorieIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqualAndMeubler(String disponibilite, float prix, String echeance, String categorie, int nbrChambre, int nbrCuisine, int nbrSalleBain, boolean meubler);
+    List<Appartement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndConfortIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqualAndMeubler(String disponibilite, float prix, String echeance, String confort, int nbrChambre, int nbrCuisine, int nbrSalleBain, boolean meubler);
 
 
 }

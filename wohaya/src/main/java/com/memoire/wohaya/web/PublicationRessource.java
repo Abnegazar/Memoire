@@ -2,6 +2,7 @@ package com.memoire.wohaya.web;
 
 import com.memoire.wohaya.domaine.Publication;
 import com.memoire.wohaya.services.PublicationService;
+import io.swagger.annotations.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RequestMapping("/wohaya-api/publication")
 @RestController
+@Api(value="Gestion des Publications de logements")
 public class PublicationRessource {
 
     private final PublicationService publicationService;

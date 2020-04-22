@@ -2,6 +2,7 @@ package com.memoire.wohaya.web;
 
 import com.memoire.wohaya.domaine.Utilisateur;
 import com.memoire.wohaya.services.UtilisateurService;
+import io.swagger.annotations.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/wohaya-api/utilisateur")
+@CrossOrigin
+@Api(value="Gestion des Utilisateurs")
 public class UtilisateurRessource {
 
     private final UtilisateurService utilisateurService;
@@ -23,14 +26,14 @@ public class UtilisateurRessource {
         return new ResponseEntity<>(utilisateurService.save(utilisateur), HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/find/{telephone}/{password}")
-    public ResponseEntity<Utilisateur> findOneByTelephoneAndPassword(@PathVariable("telephone") String telephone, @PathVariable("password") String password){
-        return new ResponseEntity<>(utilisateurService.getOneByTelephoneAndPassword(telephone, password), HttpStatus.FOUND);
+    @GetMapping(value = "/find/{username}/{password}")
+    public ResponseEntity<Utilisateur> findOneByUsernameAndPassword(@PathVariable("username") String username, @PathVariable("password") String password){
+        return new ResponseEntity<>(utilisateurService.getOneByUsernameAndPassword(username, password), HttpStatus.FOUND);
     }
 
-    @GetMapping(value = "/find/{telephone}")
-    public ResponseEntity<Utilisateur> findOneByTelephone(@PathVariable("telephone") String telephone){
-        return new ResponseEntity<>(utilisateurService.getOneByTelephone(telephone), HttpStatus.FOUND);
+    @GetMapping(value = "/find/{username}")
+    public ResponseEntity<Utilisateur> findOneByUsername(@PathVariable("username") String username){
+        return new ResponseEntity<>(utilisateurService.getOneByUsername(username), HttpStatus.FOUND);
     }
 
     @GetMapping(value = "/find_all")

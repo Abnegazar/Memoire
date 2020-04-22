@@ -1,5 +1,6 @@
 package com.memoire.wohaya.domaine;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -14,12 +15,13 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-//@DiscriminatorValue("residence")
 public class Residence extends Logement implements Serializable {
 
+    @ApiModelProperty(notes = "true(présente) ou false(absente)")
     @Column(nullable = false)
     private boolean piscine;
 
+    @ApiModelProperty(notes = "true(présent) ou false(absent)")
     @Column(nullable = false)
     private boolean jardin;
 

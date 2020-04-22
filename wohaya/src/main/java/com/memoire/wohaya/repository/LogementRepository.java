@@ -19,16 +19,16 @@ public interface LogementRepository extends JpaRepository<Logement, Long> {
     List<Logement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCase(String disponibilite, float prix, String echeance);
 
     @Nullable
-    List<Logement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndCategorieIgnoreCase(String disponibilite, float prix, String categorie);
+    List<Logement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndConfortIgnoreCase(String disponibilite, float prix, String confort);
 
     @Nullable
-    List<Logement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndCategorieIgnoreCase(String disponibilite, float prix, String echeance, String categorie);
+    List<Logement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndConfortIgnoreCase(String disponibilite, float prix, String echeance, String confort);
 
     @Nullable
-    List<Logement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndCategorieIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqual(String disponibilite, float prix, String categorie, int nbrChambre, int nbrCuisine, int nbrSalleBain);
+    List<Logement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndConfortIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqual(String disponibilite, float prix, String confort, int nbrChambre, int nbrCuisine, int nbrSalleBain);
 
     @Nullable
-    List<Logement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndCategorieIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqual(String disponibilite, float prix, String echeance, String categorie, int nbrChambre, int nbrCuisine, int nbrSalleBain);
+    List<Logement> findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndConfortIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqual(String disponibilite, float prix, String echeance, String confort, int nbrChambre, int nbrCuisine, int nbrSalleBain);
 
 
 

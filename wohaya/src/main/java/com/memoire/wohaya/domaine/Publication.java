@@ -1,6 +1,8 @@
 package com.memoire.wohaya.domaine;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +21,7 @@ public class Publication implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPublication;
 
+    @ApiModelProperty(notes = "active ou inactive selon la validité de l'abonnement du propriétaire.")
     @Column(nullable = false)
     private String status;
 

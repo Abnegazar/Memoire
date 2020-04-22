@@ -10,7 +10,7 @@ spring:
     jpa:
         hibernate:
             ddl-auto: create
-        show-sql: false
+        show-sql: true
         open-in-view: false
 server:
     port: 8443

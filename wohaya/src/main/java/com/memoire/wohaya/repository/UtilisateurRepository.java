@@ -6,15 +6,14 @@ import org.springframework.lang.Nullable;
 
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> {
 
-    @Nullable
-    Utilisateur findByTelephone(String telephone);
+    Utilisateur findByUsername(String username);
 
     @Nullable
-    Utilisateur findByTelephoneAndPwd(String phone, String pwd);
+    Utilisateur findByUsernameAndPwd(String phone, String pwd);
 
-    boolean existsByTelephoneAndPwd(String phone, String pwd);
+    boolean existsByUsernameAndPwd(String phone, String pwd);
 
-    void deleteByTelephoneAndPwd(String phone, String pwd);
+    void deleteByUsernameAndPwd(String phone, String pwd);
 
     /*@Query("select u from Utilisateur u where u.role = ?1")
     List<Utilisateur> findAllByRole(String role);*/

@@ -2,6 +2,7 @@ package com.memoire.wohaya.web;
 
 import com.memoire.wohaya.domaine.ChambreClassique;
 import com.memoire.wohaya.services.ChambreClassiqueService;
+import io.swagger.annotations.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RequestMapping("/wohaya-api/chclassique")
 @RestController
+@Api(value="Gestion des Chambres à louer")
 public class ChambreClassiqueRessource {
 
     private final ChambreClassiqueService chambreClassiqueService;

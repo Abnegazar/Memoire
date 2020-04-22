@@ -1,6 +1,7 @@
 package com.memoire.wohaya.domaine;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,8 +16,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-/*@DiscriminatorValue(value = "client")
-@DiscriminatorColumn(name = "role")*/
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Utilisateur implements Serializable {
 
@@ -27,25 +26,32 @@ public class Utilisateur implements Serializable {
     @Column(nullable = false)
     protected String nom;
 
+
     @Column(nullable = false)
     protected String prenom;
 
+    //User Telephone is his username
+    @ApiModelProperty(notes = "Numero de téléphone de l'utilisateur")
     @Column(unique = true, nullable = false)
-    protected String telephone;
+    protected String username;
 
+    @ApiModelProperty(notes = "Mot de passe de l'utilisateur")
     @Column(name = "pwd", nullable = false)
     protected String pwd;
 
     @Column(unique = true)
     protected String email;
 
+    @ApiModelProperty(notes = "masculin ou féminin : en toutes lettres")
     @Column(nullable = false, length = 8)
     protected String sexe;
 
     protected String photo;
 
+    @ApiModelProperty(notes = "plusieurs roles possibles séparés par des virgules")
     protected String roles;
 
+    @ApiModelProperty(notes = "plusieurs permissions possibles séparées par des virgules")
     protected String permissions;
 
     @JsonIgnore
@@ -64,10 +70,10 @@ public class Utilisateur implements Serializable {
     @OneToMany(mappedBy = "auteur")
     protected List<Appreciation> appreciations = new ArrayList<>();
 
-    public Utilisateur (String nom, String prenom, String telephone, String pwd, String mail, String sexe, String roles, String permissions){
+    public Utilisateur (String nom, String prenom, String username, String pwd, String mail, String sexe, String roles, String permissions){
         this.nom = nom;
         this.prenom = prenom;
-        this.telephone = telephone;
+        this.username = username;
         this.pwd = pwd;
         this.email = mail;
         this.sexe = sexe;

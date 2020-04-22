@@ -2,6 +2,7 @@ package com.memoire.wohaya.web;
 
 import com.memoire.wohaya.domaine.Abonnement;
 import com.memoire.wohaya.services.AbonnementService;
+import io.swagger.annotations.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/wohaya-api/abonnement")
 @CrossOrigin
+@Api(value="Gestion des Abonnement (Permis unique à l'Admin)")
 public class AbonnementRessource {
 
     private final AbonnementService abonnementService;

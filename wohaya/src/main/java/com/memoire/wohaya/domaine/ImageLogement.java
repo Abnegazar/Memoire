@@ -21,7 +21,6 @@ public class ImageLogement implements Serializable {
     @Column(nullable = false, unique = true)
     private String cheminImage;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "logement")
     private Logement logement;

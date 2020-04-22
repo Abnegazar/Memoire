@@ -2,6 +2,7 @@ package com.memoire.wohaya.web;
 
 import com.memoire.wohaya.domaine.Reservation;
 import com.memoire.wohaya.services.ReservationService;
+import io.swagger.annotations.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RequestMapping("/wohaya-api/reservation")
 @RestController
+@Api(value="Gestion des Réservations")
 public class ReservationRessource {
 
     private final ReservationService reservationService;

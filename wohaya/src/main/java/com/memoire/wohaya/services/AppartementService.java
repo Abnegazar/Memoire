@@ -45,36 +45,36 @@ public class AppartementService {
         return appartementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndMeubler(dispo, prix, echeance, meubler);
     }
 
-    public List<Appartement> getDispoPrixCategorie(String dispo, float prix, String categorie){
-        return appartementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndCategorieIgnoreCase(dispo, prix, categorie);
+    public List<Appartement> getDispoPrixConfort(String dispo, float prix, String confort){
+        return appartementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndConfortIgnoreCase(dispo, prix, confort);
     }
 
-    public List<Appartement> getDispoPrixCategorieMeuble(String dispo, float prix, String categorie, boolean meubler){
-        return appartementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndCategorieIgnoreCaseAndMeubler(dispo, prix, categorie, meubler);
+    public List<Appartement> getDispoPrixConfortMeuble(String dispo, float prix, String confort, boolean meubler){
+        return appartementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndConfortIgnoreCaseAndMeubler(dispo, prix, confort, meubler);
     }
 
-    public List<Appartement> getDispoPrixEcheanceCategorie(String dispo, float prix, String echeance, String categorie){
-        return appartementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndCategorieIgnoreCase(dispo, prix, echeance, categorie);
+    public List<Appartement> getDispoPrixEcheanceConfort(String dispo, float prix, String echeance, String confort){
+        return appartementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndConfortIgnoreCase(dispo, prix, echeance, confort);
     }
 
-    public List<Appartement> getDispoPrixEcheanceCategorieMeuble(String dispo, float prix, String echeance, String categorie, boolean meuble){
-        return appartementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndCategorieIgnoreCaseAndMeubler(dispo, prix, echeance, categorie, meuble);
+    public List<Appartement> getDispoPrixEcheanceConfortMeuble(String dispo, float prix, String echeance, String confort, boolean meuble){
+        return appartementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndConfortIgnoreCaseAndMeubler(dispo, prix, echeance, confort, meuble);
     }
 
-    public List<Appartement> getDispoPrixCategorieNbr_Chambr_cuisine_bain(String disponibilite, float prix, String categorie, int nbrChambre, int nbrCuisine, int nbrSalleBain){
-        return appartementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndCategorieIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqual(disponibilite, prix, categorie, nbrChambre, nbrCuisine, nbrSalleBain);
+    public List<Appartement> getDispoPrixConfortNbr_Chambr_cuisine_bain(String disponibilite, float prix, String confort, int nbrChambre, int nbrCuisine, int nbrSalleBain){
+        return appartementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndConfortIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqual(disponibilite, prix, confort, nbrChambre, nbrCuisine, nbrSalleBain);
     }
 
-    public List<Appartement> getDispoPrixCategorieNbr_Chambr_cuisine_bainMeubler(String disponibilite, float prix, String categorie, int nbrChambre, int nbrCuisine, int nbrSalleBain, boolean meubler){
-        return appartementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndCategorieIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqualAndMeubler(disponibilite, prix, categorie, nbrChambre, nbrCuisine, nbrSalleBain, meubler);
+    public List<Appartement> getDispoPrixConfortNbr_Chambr_cuisine_bainMeubler(String disponibilite, float prix, String confort, int nbrChambre, int nbrCuisine, int nbrSalleBain, boolean meubler){
+        return appartementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndConfortIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqualAndMeubler(disponibilite, prix, confort, nbrChambre, nbrCuisine, nbrSalleBain, meubler);
     }
 
-    public List<Appartement> getDispoPrixCategorieEcheanceNbr_Chambr_cuisine_bain(String disponibilite, float prix, String categorie, String echeance, int nbrChambre, int nbrCuisine, int nbrSalleBain){
-        return appartementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndCategorieIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqual(disponibilite, prix, categorie, echeance, nbrChambre, nbrCuisine, nbrSalleBain);
+    public List<Appartement> getDispoPrixConfortEcheanceNbr_Chambr_cuisine_bain(String disponibilite, float prix, String confort, String echeance, int nbrChambre, int nbrCuisine, int nbrSalleBain){
+        return appartementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndConfortIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqual(disponibilite, prix, confort, echeance, nbrChambre, nbrCuisine, nbrSalleBain);
     }
 
-    public List<Appartement> getDispoPrixCategorieEcheanceNbr_Chambr_cuisine_bainMeubler(String disponibilite, float prix, String categorie, String echeance, int nbrChambre, int nbrCuisine, int nbrSalleBain, boolean meubler){
-        return appartementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndCategorieIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqualAndMeubler(disponibilite, prix, categorie, echeance, nbrChambre, nbrCuisine, nbrSalleBain, meubler);
+    public List<Appartement> getDispoPrixConfortEcheanceNbr_Chambr_cuisine_bainMeubler(String disponibilite, float prix, String confort, String echeance, int nbrChambre, int nbrCuisine, int nbrSalleBain, boolean meubler){
+        return appartementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndConfortIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqualAndMeubler(disponibilite, prix, confort, echeance, nbrChambre, nbrCuisine, nbrSalleBain, meubler);
     }
 
     public List<Appartement> getAll(){

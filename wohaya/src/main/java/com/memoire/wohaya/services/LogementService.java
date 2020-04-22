@@ -37,20 +37,20 @@ public class LogementService {
         return logementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCase(dispo, prix, echeance);
     }
 
-    public List<Logement> getDispoPrixCategorie(String dispo, float prix, String categorie){
-        return logementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndCategorieIgnoreCase(dispo, prix, categorie);
+    public List<Logement> getDispoPrixConfort(String dispo, float prix, String confort){
+        return logementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndConfortIgnoreCase(dispo, prix, confort);
     }
 
-    public List<Logement> getDispoPrixEcheanceCategorie(String dispo, float prix, String echeance, String categorie){
-        return logementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndCategorieIgnoreCase(dispo, prix, echeance, categorie);
+    public List<Logement> getDispoPrixEcheanceConfort(String dispo, float prix, String echeance, String confort){
+        return logementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndConfortIgnoreCase(dispo, prix, echeance, confort);
     }
 
-    public List<Logement> getDispoPrixCategorieNbr_Chambr_cuisine_bain(String disponibilite, float prix, String categorie, int nbrChambre, int nbrCuisine, int nbrSalleBain){
-        return logementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndCategorieIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqual(disponibilite, prix, categorie, nbrChambre, nbrCuisine, nbrSalleBain);
+    public List<Logement> getDispoPrixConfortNbr_Chambr_cuisine_bain(String disponibilite, float prix, String confort, int nbrChambre, int nbrCuisine, int nbrSalleBain){
+        return logementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndConfortIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqual(disponibilite, prix, confort, nbrChambre, nbrCuisine, nbrSalleBain);
     }
 
-    public List<Logement> getDispoPrixCategorieEcheanceNbr_Chambr_cuisine_bain(String disponibilite, float prix, String categorie, String echeance, int nbrChambre, int nbrCuisine, int nbrSalleBain){
-        return logementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndCategorieIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqual(disponibilite, prix, categorie, echeance, nbrChambre, nbrCuisine, nbrSalleBain);
+    public List<Logement> getDispoPrixConfortEcheanceNbr_Chambr_cuisine_bain(String disponibilite, float prix, String confort, String echeance, int nbrChambre, int nbrCuisine, int nbrSalleBain){
+        return logementRepository.findAllByDisponibiliteIgnoreCaseAndPrixLessThanEqualAndEcheanceIgnoreCaseAndConfortIgnoreCaseAndNbrChambreGreaterThanEqualAndNbrCuisineGreaterThanEqualAndNbrSalleBainGreaterThanEqual(disponibilite, prix, confort, echeance, nbrChambre, nbrCuisine, nbrSalleBain);
     }
 
     public List<Logement> getAll(){

@@ -2,6 +2,7 @@ package com.memoire.wohaya.web;
 
 import com.memoire.wohaya.domaine.PrendreContact;
 import com.memoire.wohaya.services.PrendreContactService;
+import io.swagger.annotations.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,6 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/wohaya-api/contact")
+@Api(value="Gestion des Prises de contact entre Clients et Propriétaires")
 public class PrendreContactRessource {
 
     private final PrendreContactService prendreContactService;
