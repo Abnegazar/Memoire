@@ -1,7 +1,7 @@
 package com.memoire.wohaya.services;
 
-import com.memoire.wohaya.domaine.Notification;
-import com.memoire.wohaya.repository.NotificationRepository;
+import com.memoire.wohaya.model.Notification;
+import com.memoire.wohaya.db.NotificationRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

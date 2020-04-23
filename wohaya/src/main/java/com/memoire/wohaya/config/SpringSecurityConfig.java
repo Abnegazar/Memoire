@@ -1,8 +1,6 @@
 package com.memoire.wohaya.config;
 
-import com.memoire.wohaya.repository.UtilisateurRepository;
-import com.memoire.wohaya.security.JwtAuthenticationFilter;
-import com.memoire.wohaya.security.JwtAuthorizationFilter;
+import com.memoire.wohaya.db.UtilisateurRepository;
 import com.memoire.wohaya.security.UserPrincipalDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +10,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -54,8 +51,16 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     //User Roles based authentification
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-            .sessionManagement()
+        http.authorizeRequests()
+            .antMatchers("/wohaya-api/**")
+            .hasRole("PROPRIETAIRE")
+            .antMatchers(HttpMethod.POST, "/login", "/swagger-ui.html/**")
+            .permitAll()
+            .anyRequest()
+            .fullyAuthenticated()
+            .and()
+            .httpBasic();
+            /*.sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.NEVER)
             .and()
             .addFilter(new JwtAuthenticationFilter(authenticationManager()))
@@ -65,7 +70,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
             .hasRole("PROPRIETAIRE")
             .antMatchers(HttpMethod.POST, "/login", "/swagger-ui.html/**")
             .permitAll()
-        ;
+        ;*/
     }
 
     /*@Bean
@@ -82,15 +87,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
             .httpBasic();
     }*/
-
-    /* http.csrf().disable();
-        http.authorizeRequests()
-            .antMatchers("/wohaya-api/**")
-            .hasRole("PROPRIETAIRE")
-            .anyRequest()
-            .fullyAuthenticated()
-            .and()
-            .httpBasic();*/
 
     //Costumized URL authentification
    /* @Override

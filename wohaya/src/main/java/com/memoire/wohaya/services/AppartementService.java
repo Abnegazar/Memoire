@@ -1,7 +1,7 @@
 package com.memoire.wohaya.services;
 
-import com.memoire.wohaya.domaine.Appartement;
-import com.memoire.wohaya.repository.AppartementRepository;
+import com.memoire.wohaya.model.Appartement;
+import com.memoire.wohaya.db.AppartementRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

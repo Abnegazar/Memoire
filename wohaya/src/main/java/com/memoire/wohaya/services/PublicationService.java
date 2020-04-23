@@ -1,7 +1,7 @@
 package com.memoire.wohaya.services;
 
-import com.memoire.wohaya.domaine.Publication;
-import com.memoire.wohaya.repository.PublicationRepository;
+import com.memoire.wohaya.model.Publication;
+import com.memoire.wohaya.db.PublicationRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

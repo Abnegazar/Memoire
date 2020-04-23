@@ -1,6 +1,6 @@
 package com.memoire.wohaya.security;
 
-import com.memoire.wohaya.domaine.Utilisateur;
+import com.memoire.wohaya.model.Utilisateur;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

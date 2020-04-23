@@ -1,8 +1,8 @@
 package com.memoire.wohaya.services;
 
-import com.memoire.wohaya.domaine.Annonce;
-import com.memoire.wohaya.domaine.Localisation;
-import com.memoire.wohaya.repository.AnnonceRepository;
+import com.memoire.wohaya.model.Annonce;
+import com.memoire.wohaya.model.Localisation;
+import com.memoire.wohaya.db.AnnonceRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

@@ -1,10 +1,10 @@
 /*
 package com.memoire.wohaya.services;
 
-import com.memoire.wohaya.domaine.Appreciation;
-import com.memoire.wohaya.domaine.Publication;
-import com.memoire.wohaya.domaine.Utilisateur;
-import com.memoire.wohaya.repository.AppreciationRepository;
+import com.memoire.wohaya.model.Appreciation;
+import com.memoire.wohaya.model.Publication;
+import com.memoire.wohaya.model.Utilisateur;
+import com.memoire.wohaya.db.AppreciationRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

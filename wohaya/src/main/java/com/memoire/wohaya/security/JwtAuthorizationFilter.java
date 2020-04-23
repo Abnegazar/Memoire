@@ -2,13 +2,12 @@ package com.memoire.wohaya.security;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.memoire.wohaya.domaine.Utilisateur;
-import com.memoire.wohaya.repository.UtilisateurRepository;
+import com.memoire.wohaya.model.Utilisateur;
+import com.memoire.wohaya.db.UtilisateurRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 import javax.servlet.FilterChain;

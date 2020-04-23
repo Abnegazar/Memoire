@@ -1,11 +1,11 @@
 package com.memoire.wohaya;
 
-import com.memoire.wohaya.domaine.Abonnement;
-import com.memoire.wohaya.domaine.Proprietaire;
-import com.memoire.wohaya.domaine.Utilisateur;
-import com.memoire.wohaya.repository.AbonnementRepository;
-import com.memoire.wohaya.repository.ProprietaireRepository;
-import com.memoire.wohaya.repository.UtilisateurRepository;
+import com.memoire.wohaya.model.Abonnement;
+import com.memoire.wohaya.model.Proprietaire;
+import com.memoire.wohaya.model.Utilisateur;
+import com.memoire.wohaya.db.AbonnementRepository;
+import com.memoire.wohaya.db.ProprietaireRepository;
+import com.memoire.wohaya.db.UtilisateurRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -142,6 +142,7 @@ public class DbInit implements CommandLineRunner {
             LocalDate.now().plusMonths(abonnement02.getDuree()),
             abonnement02
         );
+
         Proprietaire proprietaire2 = new Proprietaire(
             "TANTO",
             "Josiane",

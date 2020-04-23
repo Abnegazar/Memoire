@@ -1,8 +1,8 @@
 package com.memoire.wohaya.services;
 
-import com.memoire.wohaya.domaine.Proprietaire;
-import com.memoire.wohaya.repository.ProprietaireRepository;
-import com.memoire.wohaya.repository.UtilisateurRepository;
+import com.memoire.wohaya.model.Proprietaire;
+import com.memoire.wohaya.db.ProprietaireRepository;
+import com.memoire.wohaya.db.UtilisateurRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

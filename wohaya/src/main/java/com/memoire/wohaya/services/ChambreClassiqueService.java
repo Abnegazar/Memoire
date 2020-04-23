@@ -1,7 +1,7 @@
 package com.memoire.wohaya.services;
 
-import com.memoire.wohaya.domaine.ChambreClassique;
-import com.memoire.wohaya.repository.ChambreClassiqueRepository;
+import com.memoire.wohaya.model.ChambreClassique;
+import com.memoire.wohaya.db.ChambreClassiqueRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

@@ -1,7 +1,7 @@
 package com.memoire.wohaya.services;
 
-import com.memoire.wohaya.domaine.PrendreContact;
-import com.memoire.wohaya.repository.PrendreContactRepository;
+import com.memoire.wohaya.model.PrendreContact;
+import com.memoire.wohaya.db.PrendreContactRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

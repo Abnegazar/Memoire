@@ -1,7 +1,7 @@
 package com.memoire.wohaya.services;
 
-import com.memoire.wohaya.domaine.Reservation;
-import com.memoire.wohaya.repository.ReservationRepository;
+import com.memoire.wohaya.model.Reservation;
+import com.memoire.wohaya.db.ReservationRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

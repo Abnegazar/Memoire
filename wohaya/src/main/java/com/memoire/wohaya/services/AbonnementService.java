@@ -1,7 +1,7 @@
 package com.memoire.wohaya.services;
 
-import com.memoire.wohaya.domaine.Abonnement;
-import com.memoire.wohaya.repository.AbonnementRepository;
+import com.memoire.wohaya.model.Abonnement;
+import com.memoire.wohaya.db.AbonnementRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
